@@ -6,12 +6,13 @@ import com.papsign.ktor.openapigen.route.tag
 import io.ktor.application.*
 import io.ktor.response.*
 import io.ktor.routing.*
+import mobi.sevenwinds.app.Author.author
 import mobi.sevenwinds.app.budget.budget
 
 fun NormalOpenAPIRoute.swaggerRouting() {
     tag(SwaggerTag.Бюджет) { budget() }
+    tag(SwaggerTag.Автор) { author() }
 }
-
 fun Routing.serviceRouting() {
     get("/") {
         call.respondRedirect("/swagger-ui/index.html?url=/openapi.json", true)
